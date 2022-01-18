@@ -7,7 +7,11 @@
 
 import UIKit
 
-class GFNetworkManager {
+protocol NetworkService {
+    func fetchData<T: Decodable>(from url: URL, completion: @escaping (Result<T, GFError>) -> Void)
+}
+
+class GFNetworkManager: NetworkService {
 
     static let sharedInstance: GFNetworkManager = GFNetworkManager()
     let cache: NSCache = NSCache<NSString, UIImage>()
@@ -80,7 +84,6 @@ class GFNetworkManager {
             self.cache.setObject(image, forKey: cacheKey)
             completetion(image)
         }
-
         task.resume()
     }
 }

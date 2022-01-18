@@ -7,7 +7,13 @@
 
 import Foundation
 
-struct GFEndpoint {
+protocol NetworkConfigurable {
+    var path: String { get }
+    var queryItems: [URLQueryItem]? { get }
+    var url: URL? { get }
+}
+
+struct GFEndpoint: NetworkConfigurable {
     let path: String
     var queryItems: [URLQueryItem]?
     var url: URL? {
