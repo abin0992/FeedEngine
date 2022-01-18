@@ -5,6 +5,8 @@ import PackageDescription
 
 let package = Package(
     name: "FeedEngine",
+    platforms: [.iOS(.v13),
+                .tvOS(.v12)],
     products: [
         // Products define the executables and libraries a package produces, and make them visible to other packages.
         .library(

@@ -24,23 +24,28 @@ class GFNetworkManager {
 
     func fetchData <T: Decodable>(from url: URL, completion: @escaping (Result<T, GFError>) -> Void) {
 
-        let task: URLSessionTask = URLSession.shared.dataTask(with: url) { result in
-            switch result {
-            case .success(( _, let data)):
-                do {
-                    let result: T = try self.decoder.decode(T.self, from: data)
+        let task: URLSessionTask = URLSession.shared.dataTask(with: url) { data, response, error in
+            if let _ = error {
+                completion(.failure(.networkError))
+                return
+            }
 
-                    completion(.success(result))
-                } catch {
-                    if let error: GFError = error as? GFError {
-                        return completion(.failure(error))
-                    }
+            guard let response = response as? HTTPURLResponse, 200...299 ~= response.statusCode else {
+                completion(.failure(.networkError))
+                return
+            }
 
-                    completion(.failure(.invalidData))
-                }
-            case .failure(let exception):
-                completion(.failure(exception))
-             }
+            guard let data = data else {
+                completion(.failure(.noData))
+                return
+            }
+
+            do {
+                let result: T = try self.decoder.decode(T.self, from: data)
+                completion(.success(result))
+            }catch{
+                completion(.failure(.invalidData))
+            }
         }
 
         task.resume()
