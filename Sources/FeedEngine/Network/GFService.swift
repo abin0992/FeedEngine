@@ -25,7 +25,7 @@ class GFService {
 
         GFNetworkManager.sharedInstance.fetchData(from: url) { (result: Swift.Result<UserList, GFError>) in
             switch result {
-            case .success (let dataArray):
+            case .success(let dataArray):
                 completion(.success(dataArray.items))
             case .failure(let exception):
                 completion(.failure(exception))
@@ -43,7 +43,7 @@ class GFService {
 
         GFNetworkManager.sharedInstance.fetchData(from: url) { (result: Swift.Result<UserDetail, GFError>) in
             switch result {
-            case .success (let user):
+            case .success(let user):
                 completion(.success(user))
             case .failure(let exception):
                 completion(.failure(exception))
@@ -66,7 +66,7 @@ class GFService {
 
             GFNetworkManager.sharedInstance.fetchData(from: url) { (result: Swift.Result<[User], GFError>) in
                 switch result {
-                case .success (let dataArray):
+                case .success(let dataArray):
                     completion(.success(dataArray))
                 case .failure(let exception):
                     completion(.failure(exception))

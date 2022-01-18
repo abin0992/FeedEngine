@@ -25,7 +25,7 @@ class GFNetworkManager {
     func fetchData <T: Decodable>(from url: URL, completion: @escaping (Result<T, GFError>) -> Void) {
 
         let task: URLSessionTask = URLSession.shared.dataTask(with: url) { data, response, error in
-            if let _ = error {
+            if error != nil {
                 completion(.failure(.networkError))
                 return
             }
@@ -43,7 +43,7 @@ class GFNetworkManager {
             do {
                 let result: T = try self.decoder.decode(T.self, from: data)
                 completion(.success(result))
-            }catch{
+            } catch {
                 completion(.failure(.invalidData))
             }
         }
