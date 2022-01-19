@@ -7,14 +7,18 @@
 
 import UIKit
 
-protocol NetworkService {
-    func fetchData<T: Decodable>(from url: URL, completion: @escaping (Result<T, GFError>) -> Void)
+protocol NetworkSessionManager {
+    typealias CompletionHandler = (Result<Data, GFError>) -> Void
+
+    func fetchData(from request: URLRequest, completion: @escaping CompletionHandler)
 }
 
-class GFNetworkManager: NetworkService {
+protocol NetworkService {
+    func request<T: Decodable>(endpoint: Requestable, completion: @escaping (Result<T, GFError>) -> Void)
+}
 
-    static let sharedInstance: GFNetworkManager = GFNetworkManager()
-    let cache: NSCache = NSCache<NSString, UIImage>()
+extension GFNetworkManager: NetworkService {
+
     var decoder: JSONDecoder {
         let decoder: JSONDecoder = JSONDecoder()
         decoder.keyDecodingStrategy = .convertFromSnakeCase
@@ -22,37 +26,68 @@ class GFNetworkManager: NetworkService {
         return decoder
     }
 
-    init() {}
-
-    // MARK: - URLSession Data task
-
-    func fetchData <T: Decodable>(from url: URL, completion: @escaping (Result<T, GFError>) -> Void) {
-
-        let task: URLSessionTask = URLSession.shared.dataTask(with: url) { data, response, error in
-            if error != nil {
-                completion(.failure(.networkError))
-                return
+    func request<T: Decodable>(endpoint: Requestable, completion: @escaping (Result<T, GFError>) -> Void) {
+        do {
+            let urlRequest = try endpoint.asURLRequest()
+            return fetchData(from: urlRequest) { responseData in
+                switch responseData {
+                case .success(let responseData):
+                    do {
+                        let result: T = try self.decoder.decode(T.self, from: responseData)
+                        completion(.success(result))
+                    } catch {
+                        completion(.failure(.invalidData))
+                    }
+                case .failure(let error):
+                    completion(.failure(error))
+                }
             }
+        } catch {
+            completion(.failure(.urlGeneration))
+        }
+    }
+}
 
-            guard let response = response as? HTTPURLResponse, 200...299 ~= response.statusCode else {
-                completion(.failure(.networkError))
-                return
-            }
+class GFNetworkManager: NetworkSessionManager {
 
-            guard let data = data else {
-                completion(.failure(.noData))
-                return
-            }
+    private let logger: NetworkErrorLogger
 
-            do {
-                let result: T = try self.decoder.decode(T.self, from: data)
-                completion(.success(result))
-            } catch {
-                completion(.failure(.invalidData))
+    static let sharedInstance: GFNetworkManager = GFNetworkManager()
+    let cache: NSCache = NSCache<NSString, UIImage>()
+
+    init(logger: NetworkErrorLogger = DefaultNetworkErrorLogger()) {
+        self.logger = logger
+    }
+
+    internal func fetchData(from request: URLRequest, completion: @escaping (Result<Data, GFError>) -> Void) {
+        let sessionDataTask = URLSession.shared.dataTask(with: request) { data, response, requestError in
+            if let requestError = requestError {
+                var error: GFError
+                if let response = response as? HTTPURLResponse {
+                    error = .GFError(statusCode: response.statusCode, data: data)
+                } else {
+                    error = self.resolve(error: requestError)
+                }
+
+                self.logger.log(error: error)
+                completion(.failure(error))
+            } else {
+
+                guard let response = response as? HTTPURLResponse, 200...299 ~= response.statusCode else {
+                    completion(.failure(.networkError))
+                    return
+                }
+
+                guard let data = data else {
+                    completion(.failure(.noData))
+                    return
+                }
+
+                self.logger.log(responseData: data, response: response)
+                completion(.success(data))
             }
         }
-
-        task.resume()
+        sessionDataTask.resume()
     }
 
     // MARK: - Fetch image from URL or from cache
@@ -85,5 +120,13 @@ class GFNetworkManager: NetworkService {
             completetion(image)
         }
         task.resume()
+    }
+
+    private func resolve(error: Error) -> GFError {
+        let code = URLError.Code(rawValue: (error as NSError).code)
+        switch code {
+        case .notConnectedToInternet: return .notConnected
+        default: return .generic
+        }
     }
 }

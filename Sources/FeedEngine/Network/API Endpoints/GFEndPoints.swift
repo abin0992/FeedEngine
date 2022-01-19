@@ -26,7 +26,7 @@ struct GFEndpoint: NetworkConfigurable {
         return components.url
     }
 
-    static func users(queryItems: [URLQueryItem]) -> GFEndpoint {
+    static func searchUsers(queryItems: [URLQueryItem]) -> GFEndpoint {
         GFEndpoint(
             path: "/search/users", queryItems: queryItems
         )
@@ -39,8 +39,8 @@ struct GFEndpoint: NetworkConfigurable {
     }
 
     static func followersList(for username: String, queryItems: [URLQueryItem]) -> GFEndpoint {
-            GFEndpoint(
-                path: "/users/\(username)/followers", queryItems: queryItems
-            )
-        }
+        GFEndpoint(
+            path: "/users/\(username)/followers", queryItems: queryItems
+        )
+    }
 }

@@ -16,6 +16,10 @@ enum GFError: Error {
     case limitExceeded
     case networkError
     case noData
+    case urlGeneration
+    case GFError(statusCode: Int, data: Data?)
+    case notConnected
+    case generic
 
     var description: String {
             switch self {
@@ -33,6 +37,14 @@ enum GFError: Error {
                 return "Could not complete operation due to nerwork error. Please try again."
             case .noData:
                 return "No data received from server. Please try again"
+            case .urlGeneration:
+                return "Couldn't generate URL"
+            case .GFError(statusCode: let statusCode, data: _):
+                return "\(statusCode) error received."
+            case .notConnected:
+                return "Not connected to internet"
+            case .generic:
+                return "Sorry, something went wrong"
             }
         }
 }
