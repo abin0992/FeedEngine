@@ -7,17 +7,6 @@
 
 import UIKit
 
-protocol NetworkSessionManager {
-    typealias CompletionHandler = (Result<Data, GFError>) -> Void
-
-    func fetchData(from request: URLRequest, completion: @escaping CompletionHandler)
-}
-
-protocol NetworkService {
-    func request<T: Decodable>(endpoint: Requestable, completion: @escaping (Result<T, GFError>) -> Void)
-    func downloadImage(from urlString: String, completion: @escaping (UIImage?) -> Void)
-}
-
 extension GFNetworkManager: NetworkService {
 
     var decoder: JSONDecoder {
@@ -37,9 +26,11 @@ extension GFNetworkManager: NetworkService {
                         let result: T = try self.decoder.decode(T.self, from: responseData)
                         completion(.success(result))
                     } catch {
+                        self.logger.log(error: .invalidData)
                         completion(.failure(.invalidData))
                     }
                 case .failure(let error):
+                    self.logger.log(error: error)
                     completion(.failure(error))
                 }
             }
@@ -108,11 +99,13 @@ class GFNetworkManager: NetworkSessionManager {
             } else {
 
                 guard let response = response as? HTTPURLResponse, 200...299 ~= response.statusCode else {
+                    self.logger.log(error: .networkError)
                     completion(.failure(.networkError))
                     return
                 }
 
                 guard let data = data else {
+                    self.logger.log(error: .noData)
                     completion(.failure(.noData))
                     return
                 }
@@ -131,4 +124,15 @@ class GFNetworkManager: NetworkSessionManager {
         default: return .generic
         }
     }
+}
+
+protocol NetworkSessionManager {
+    typealias CompletionHandler = (Result<Data, GFError>) -> Void
+
+    func fetchData(from request: URLRequest, completion: @escaping CompletionHandler)
+}
+
+protocol NetworkService {
+    func request<T: Decodable>(endpoint: Requestable, completion: @escaping (Result<T, GFError>) -> Void)
+    func downloadImage(from urlString: String, completion: @escaping (UIImage?) -> Void)
 }
