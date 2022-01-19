@@ -7,7 +7,7 @@
 
 import Foundation
 
-struct UserDetail: Codable {
+public struct UserDetail: Codable {
     let login: String
     let avatarUrl: String
     var name: String?

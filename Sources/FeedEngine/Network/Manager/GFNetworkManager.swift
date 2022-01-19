@@ -15,6 +15,7 @@ protocol NetworkSessionManager {
 
 protocol NetworkService {
     func request<T: Decodable>(endpoint: Requestable, completion: @escaping (Result<T, GFError>) -> Void)
+    func downloadImage(from urlString: String, completion: @escaping (UIImage?) -> Void)
 }
 
 extension GFNetworkManager: NetworkService {
@@ -29,7 +30,7 @@ extension GFNetworkManager: NetworkService {
     func request<T: Decodable>(endpoint: Requestable, completion: @escaping (Result<T, GFError>) -> Void) {
         do {
             let urlRequest = try endpoint.asURLRequest()
-            return fetchData(from: urlRequest) { responseData in
+            fetchData(from: urlRequest) { responseData in
                 switch responseData {
                 case .success(let responseData):
                     do {
@@ -46,14 +47,47 @@ extension GFNetworkManager: NetworkService {
             completion(.failure(.urlGeneration))
         }
     }
+
+    // MARK: - Fetch image from URL or from cache
+
+    func downloadImage(from urlString: String, completion: @escaping (UIImage?) -> Void) {
+        let cacheKey: NSString = NSString(string: urlString)
+
+        if let image: UIImage = cache.object(forKey: cacheKey) {
+            completion(image)
+            return
+        }
+
+        guard let url: URL = URL(string: urlString) else {
+            self.logger.log(error: .urlGeneration)
+            completion(nil)
+            return
+        }
+
+        fetchData(from: URLRequest(url: url)) { responseData in
+            switch responseData {
+            case .success(let responseData):
+                guard let image = UIImage(data: responseData) else {
+                    self.logger.log(error: .invalidData)
+                    completion(nil)
+                    return
+                }
+
+                self.cache.setObject(image, forKey: cacheKey)
+                completion(image)
+            case .failure(let error):
+                self.logger.log(error: error)
+                completion(nil)
+            }
+        }
+    }
 }
 
 class GFNetworkManager: NetworkSessionManager {
 
-    private let logger: NetworkErrorLogger
-
     static let sharedInstance: GFNetworkManager = GFNetworkManager()
-    let cache: NSCache = NSCache<NSString, UIImage>()
+    private let logger: NetworkErrorLogger
+    private let cache: NSCache = NSCache<NSString, UIImage>()
 
     init(logger: NetworkErrorLogger = DefaultNetworkErrorLogger()) {
         self.logger = logger
@@ -88,38 +122,6 @@ class GFNetworkManager: NetworkSessionManager {
             }
         }
         sessionDataTask.resume()
-    }
-
-    // MARK: - Fetch image from URL or from cache
-
-    func downloadImage(from urlString: String, completetion: @escaping (UIImage?) -> Void) {
-        let cacheKey: NSString = NSString(string: urlString)
-
-        if let image: UIImage = cache.object(forKey: cacheKey) {
-            completetion(image)
-            return
-        }
-
-        guard let url: URL = URL(string: urlString) else {
-            completetion(nil)
-            return
-        }
-
-        let task: URLSessionDataTask = URLSession.shared.dataTask(with: url) { [weak self] data, response, error in
-
-            guard let self = self,
-                error == nil,
-                let response = response as? HTTPURLResponse, response.statusCode == 200,
-                let data = data,
-                let image = UIImage(data: data) else {
-                    completetion(nil)
-                    return
-                }
-
-            self.cache.setObject(image, forKey: cacheKey)
-            completetion(image)
-        }
-        task.resume()
     }
 
     private func resolve(error: Error) -> GFError {

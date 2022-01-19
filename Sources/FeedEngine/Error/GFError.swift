@@ -7,7 +7,7 @@
 
 import Foundation
 
-enum GFError: Error {
+public enum GFError: Error {
 
     case invalidUsername
     case unableToComplete
