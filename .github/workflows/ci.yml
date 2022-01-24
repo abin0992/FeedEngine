@@ -1,0 +1,35 @@
+name: CI
+
+on: [push]
+
+jobs:
+  SwiftLint:
+    runs-on: ubuntu-latest
+    steps:
+    - uses: actions/checkout@v1
+    - name: Github Action for SwiftLint
+      uses: norio-nomura/action-swiftlint@3.0.1
+
+  Build:
+    runs-on: macos-latest
+    steps:
+    - name: Checkout
+      uses: actions/checkout@v2
+      with:
+        fetch-depth: 1
+
+    - name: Build app
+      if: steps.cache.outputs.cache-hit != 'true'
+      run: xcodebuild -project 'FeedEngine.xcodeproj' -scheme 'FeedEngine' -destination 'generic/platform=iOS' -configuration Release build CODE_SIGNING_ALLOWED=NO | xcpretty
+    
+  Test:
+    runs-on: macos-latest
+    steps:
+    - name: Checkout
+      uses: actions/checkout@v2
+      with:
+        fetch-depth: 1
+
+    - name: Run tests
+      if: steps.cache.outputs.cache-hit != 'true'
+      run: xcodebuild -project 'FeedEngine.xcodeproj' -scheme 'FeedEngine' -destination 'platform=iOS Simulator,name=iPhone 13 Pro' test | xcpretty
