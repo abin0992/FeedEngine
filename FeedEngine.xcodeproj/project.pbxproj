@@ -25,6 +25,7 @@
 		86B1183B279F46B1007468A0 /* test_searchUsers.json in Resources */ = {isa = PBXBuildFile; fileRef = 86B1183A279F46B1007468A0 /* test_searchUsers.json */; };
 		86B1183F279F49AD007468A0 /* test_fetchFollowers.json in Resources */ = {isa = PBXBuildFile; fileRef = 86B1183E279F49AD007468A0 /* test_fetchFollowers.json */; };
 		86B11842279F4D3D007468A0 /* FeedServiceTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 86B11841279F4D3D007468A0 /* FeedServiceTests.swift */; };
+		86B11847279F595C007468A0 /* FeedEngine_Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 86B11843279F5732007468A0 /* FeedEngine_Info.plist */; };
 		86EEA54327976C6800411BA7 /* GFError.swift in Sources */ = {isa = PBXBuildFile; fileRef = 86EEA54227976C6800411BA7 /* GFError.swift */; };
 		86EEA546279771B100411BA7 /* GFConfig.swift in Sources */ = {isa = PBXBuildFile; fileRef = 86EEA545279771B100411BA7 /* GFConfig.swift */; };
 		86EEA55227977A8900411BA7 /* UserDetail.swift in Sources */ = {isa = PBXBuildFile; fileRef = 86EEA55027977A8900411BA7 /* UserDetail.swift */; };
@@ -292,6 +293,7 @@
 				OBJ_26 /* Sources */,
 				OBJ_30 /* Frameworks */,
 				86EEA54027976BA400411BA7 /* SwiftLint */,
+				86B11846279F5952007468A0 /* Resources */,
 			);
 			buildRules = (
 			);
@@ -371,6 +373,14 @@
 				86B11835279CA11A007468A0 /* test_userInfo.json in Resources */,
 				86B1183B279F46B1007468A0 /* test_searchUsers.json in Resources */,
 				86B1183F279F49AD007468A0 /* test_fetchFollowers.json in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		86B11846279F5952007468A0 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				86B11847279F595C007468A0 /* FeedEngine_Info.plist in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
