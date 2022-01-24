@@ -1,14 +1,14 @@
 //
-//  NetworkServiceTests.swift
+//  FeedServiceTests.swift
 //  FeedEngineTests
 //
-//  Created by Abin Baby on 19/01/2022.
+//  Created by Abin Baby on 24/01/2022.
 //
 
 @testable import FeedEngine
 import XCTest
 
-class NetworkServiceTests: XCTestCase {
+class FeedServiceTests: XCTestCase {
 
     let expectationName: String = "Feed service"
     var mockFeedService: GFService!
