@@ -7,40 +7,66 @@
 
 import Foundation
 
-protocol NetworkConfigurable {
-    var path: String { get }
-    var queryItems: [URLQueryItem]? { get }
-    var url: URL? { get }
+protocol URLConfig {
+    var url: URL { get }
 }
 
-struct GFEndpoint: NetworkConfigurable {
+private struct GFEndpoint: URLConfig {
+
     let path: String
-    var queryItems: [URLQueryItem]?
-    var url: URL? {
+    var queryItems: [URLQueryItem] = []
+    var url: URL {
         var components: URLComponents = URLComponents()
         components.scheme = "https"
         components.host = AppConfiguration.apiBaseURL
         components.path = path
         components.queryItems = queryItems
 
-        return components.url
-    }
+        guard let url = components.url else {
+            DLog("Invalid URL components: \(components)")
+            preconditionFailure(
+                "Invalid URL components: \(components)"
+            )
+        }
 
-    static func searchUsers(queryItems: [URLQueryItem]) -> GFEndpoint {
+        return url
+    }
+}
+
+protocol NetworkConfigurable {
+    func searchUsers(with searchKey: String, page: Int) -> URLConfig
+    func userInfo(for username: String) -> URLConfig
+    func followersList(for username: String, page: Int) -> URLConfig
+}
+
+class GFUrlConfig: NetworkConfigurable {
+
+    static let shared: GFUrlConfig = GFUrlConfig()
+
+    func searchUsers(with searchKey: String, page: Int) -> URLConfig {
         GFEndpoint(
-            path: "/search/users", queryItems: queryItems
+            path: "/search/users",
+            queryItems: [
+                URLQueryItem(name: "q", value: "\(searchKey)"),
+                URLQueryItem(name: "per_page", value: "100"),
+                URLQueryItem(name: "page", value: "\(page)")
+            ]
         )
     }
 
-    static func userInfo(for username: String) -> GFEndpoint {
+    func userInfo(for username: String) -> URLConfig {
         GFEndpoint(
-            path: "/users/\(username)", queryItems: nil
+            path: "/users/\(username)"
         )
     }
 
-    static func followersList(for username: String, queryItems: [URLQueryItem]) -> GFEndpoint {
+    func followersList(for username: String, page: Int) -> URLConfig {
         GFEndpoint(
-            path: "/users/\(username)/followers", queryItems: queryItems
+            path: "/users/\(username)/followers",
+            queryItems: [
+                URLQueryItem(name: "per_page", value: "100"),
+                URLQueryItem(name: "page", value: "\(page)")
+            ]
         )
     }
 }

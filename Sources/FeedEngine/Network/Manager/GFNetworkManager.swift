@@ -16,26 +16,22 @@ extension GFNetworkManager: NetworkService {
         return decoder
     }
 
-    func request<T: Decodable>(endpoint: Requestable, completion: @escaping (Result<T, GFError>) -> Void) {
-        do {
-            let urlRequest = try endpoint.asURLRequest()
-            fetchData(from: urlRequest) { responseData in
-                switch responseData {
-                case .success(let responseData):
-                    do {
-                        let result: T = try self.decoder.decode(T.self, from: responseData)
-                        completion(.success(result))
-                    } catch {
-                        self.logger.log(error: .invalidData)
-                        completion(.failure(.invalidData))
-                    }
-                case .failure(let error):
-                    self.logger.log(error: error)
-                    completion(.failure(error))
+    func request<T: Decodable>(endpoint: URL, completion: @escaping (Result<T, GFError>) -> Void) {
+        let urlRequest = URLRequest(url: endpoint)
+        fetchData(from: urlRequest) { responseData in
+            switch responseData {
+            case .success(let responseData):
+                do {
+                    let result: T = try self.decoder.decode(T.self, from: responseData)
+                    completion(.success(result))
+                } catch {
+                    self.logger.log(error: .invalidData)
+                    completion(.failure(.invalidData))
                 }
+            case .failure(let error):
+                self.logger.log(error: error)
+                completion(.failure(error))
             }
-        } catch {
-            completion(.failure(.urlGeneration))
         }
     }
 
@@ -133,6 +129,6 @@ protocol NetworkSessionManager {
 }
 
 protocol NetworkService {
-    func request<T: Decodable>(endpoint: Requestable, completion: @escaping (Result<T, GFError>) -> Void)
+    func request<T: Decodable>(endpoint: URL, completion: @escaping (Result<T, GFError>) -> Void)
     func downloadImage(from urlString: String, completion: @escaping (UIImage?) -> Void)
 }
