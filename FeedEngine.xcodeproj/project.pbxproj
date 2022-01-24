@@ -1,0 +1,700 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 46;
+	objects = {
+
+/* Begin PBXAggregateTarget section */
+		"FeedEngine::FeedEnginePackageTests::ProductTarget" /* FeedEnginePackageTests */ = {
+			isa = PBXAggregateTarget;
+			buildConfigurationList = OBJ_38 /* Build configuration list for PBXAggregateTarget "FeedEnginePackageTests" */;
+			buildPhases = (
+			);
+			dependencies = (
+				OBJ_41 /* PBXTargetDependency */,
+			);
+			name = FeedEnginePackageTests;
+			productName = FeedEnginePackageTests;
+		};
+/* End PBXAggregateTarget section */
+
+/* Begin PBXBuildFile section */
+		86B11835279CA11A007468A0 /* test_userInfo.json in Resources */ = {isa = PBXBuildFile; fileRef = 86795C4D279C9FEA002F5218 /* test_userInfo.json */; };
+		86B1183B279F46B1007468A0 /* test_searchUsers.json in Resources */ = {isa = PBXBuildFile; fileRef = 86B1183A279F46B1007468A0 /* test_searchUsers.json */; };
+		86B1183F279F49AD007468A0 /* test_fetchFollowers.json in Resources */ = {isa = PBXBuildFile; fileRef = 86B1183E279F49AD007468A0 /* test_fetchFollowers.json */; };
+		86B11842279F4D3D007468A0 /* FeedServiceTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 86B11841279F4D3D007468A0 /* FeedServiceTests.swift */; };
+		86EEA54327976C6800411BA7 /* GFError.swift in Sources */ = {isa = PBXBuildFile; fileRef = 86EEA54227976C6800411BA7 /* GFError.swift */; };
+		86EEA546279771B100411BA7 /* GFConfig.swift in Sources */ = {isa = PBXBuildFile; fileRef = 86EEA545279771B100411BA7 /* GFConfig.swift */; };
+		86EEA55227977A8900411BA7 /* UserDetail.swift in Sources */ = {isa = PBXBuildFile; fileRef = 86EEA55027977A8900411BA7 /* UserDetail.swift */; };
+		86EEA55327977A8900411BA7 /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = 86EEA55127977A8900411BA7 /* User.swift */; };
+		86EEA5582798196800411BA7 /* Logging.swift in Sources */ = {isa = PBXBuildFile; fileRef = 86EEA5572798196800411BA7 /* Logging.swift */; };
+		86EEA55F27982B1E00411BA7 /* MockNetworkManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 86EEA55C27982B1E00411BA7 /* MockNetworkManager.swift */; };
+		86EEA56527982B3000411BA7 /* UserTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 86EEA56327982B3000411BA7 /* UserTests.swift */; };
+		86EEA56627982B3000411BA7 /* UserDetailTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 86EEA56427982B3000411BA7 /* UserDetailTests.swift */; };
+		86EEA56D27982E5900411BA7 /* MockNetworkConfigurable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 86EEA56C27982E5900411BA7 /* MockNetworkConfigurable.swift */; };
+		OBJ_27 /* GFEndPoints.swift in Sources */ = {isa = PBXBuildFile; fileRef = OBJ_11 /* GFEndPoints.swift */; };
+		OBJ_28 /* GFService.swift in Sources */ = {isa = PBXBuildFile; fileRef = OBJ_12 /* GFService.swift */; };
+		OBJ_29 /* GFNetworkManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = OBJ_14 /* GFNetworkManager.swift */; };
+		OBJ_36 /* Package.swift in Sources */ = {isa = PBXBuildFile; fileRef = OBJ_6 /* Package.swift */; };
+		OBJ_49 /* FeedEngine.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = "FeedEngine::FeedEngine::Product" /* FeedEngine.framework */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXContainerItemProxy section */
+		86EEA53E27976B9C00411BA7 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = OBJ_1 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = "FeedEngine::FeedEngine";
+			remoteInfo = FeedEngine;
+		};
+		86EEA53F27976B9C00411BA7 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = OBJ_1 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = "FeedEngine::FeedEngineTests";
+			remoteInfo = FeedEngineTests;
+		};
+/* End PBXContainerItemProxy section */
+
+/* Begin PBXFileReference section */
+		86795C4D279C9FEA002F5218 /* test_userInfo.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = test_userInfo.json; sourceTree = "<group>"; };
+		86B1183A279F46B1007468A0 /* test_searchUsers.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = test_searchUsers.json; sourceTree = "<group>"; };
+		86B1183E279F49AD007468A0 /* test_fetchFollowers.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = test_fetchFollowers.json; sourceTree = "<group>"; };
+		86B11841279F4D3D007468A0 /* FeedServiceTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FeedServiceTests.swift; sourceTree = "<group>"; };
+		86EEA54227976C6800411BA7 /* GFError.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GFError.swift; sourceTree = "<group>"; };
+		86EEA545279771B100411BA7 /* GFConfig.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GFConfig.swift; sourceTree = "<group>"; };
+		86EEA55027977A8900411BA7 /* UserDetail.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UserDetail.swift; sourceTree = "<group>"; };
+		86EEA55127977A8900411BA7 /* User.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = User.swift; sourceTree = "<group>"; };
+		86EEA5572798196800411BA7 /* Logging.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Logging.swift; sourceTree = "<group>"; };
+		86EEA55C27982B1E00411BA7 /* MockNetworkManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MockNetworkManager.swift; sourceTree = "<group>"; };
+		86EEA56327982B3000411BA7 /* UserTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UserTests.swift; sourceTree = "<group>"; };
+		86EEA56427982B3000411BA7 /* UserDetailTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UserDetailTests.swift; sourceTree = "<group>"; };
+		86EEA56C27982E5900411BA7 /* MockNetworkConfigurable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MockNetworkConfigurable.swift; sourceTree = "<group>"; };
+		"FeedEngine::FeedEngine::Product" /* FeedEngine.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = FeedEngine.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		"FeedEngine::FeedEngineTests::Product" /* FeedEngineTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; path = FeedEngineTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		OBJ_11 /* GFEndPoints.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GFEndPoints.swift; sourceTree = "<group>"; };
+		OBJ_12 /* GFService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GFService.swift; sourceTree = "<group>"; };
+		OBJ_14 /* GFNetworkManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GFNetworkManager.swift; sourceTree = "<group>"; };
+		OBJ_21 /* README.md */ = {isa = PBXFileReference; lastKnownFileType = net.daringfireball.markdown; path = README.md; sourceTree = "<group>"; };
+		OBJ_6 /* Package.swift */ = {isa = PBXFileReference; explicitFileType = sourcecode.swift; path = Package.swift; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		OBJ_30 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 0;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		OBJ_48 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 0;
+			files = (
+				OBJ_49 /* FeedEngine.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		86B11837279CA141007468A0 /* Stubs */ = {
+			isa = PBXGroup;
+			children = (
+				86B1183E279F49AD007468A0 /* test_fetchFollowers.json */,
+				86B1183A279F46B1007468A0 /* test_searchUsers.json */,
+				86795C4D279C9FEA002F5218 /* test_userInfo.json */,
+			);
+			path = Stubs;
+			sourceTree = "<group>";
+		};
+		86B11840279F4D1E007468A0 /* Service Tests */ = {
+			isa = PBXGroup;
+			children = (
+				86B11841279F4D3D007468A0 /* FeedServiceTests.swift */,
+			);
+			path = "Service Tests";
+			sourceTree = "<group>";
+		};
+		86EEA54127976C4400411BA7 /* Error */ = {
+			isa = PBXGroup;
+			children = (
+				86EEA54227976C6800411BA7 /* GFError.swift */,
+			);
+			path = Error;
+			sourceTree = "<group>";
+		};
+		86EEA5442797719700411BA7 /* Config */ = {
+			isa = PBXGroup;
+			children = (
+				86EEA545279771B100411BA7 /* GFConfig.swift */,
+			);
+			path = Config;
+			sourceTree = "<group>";
+		};
+		86EEA54F27977A8900411BA7 /* Models */ = {
+			isa = PBXGroup;
+			children = (
+				86EEA55127977A8900411BA7 /* User.swift */,
+				86EEA55027977A8900411BA7 /* UserDetail.swift */,
+			);
+			path = Models;
+			sourceTree = "<group>";
+		};
+		86EEA5592798200E00411BA7 /* Service */ = {
+			isa = PBXGroup;
+			children = (
+				OBJ_12 /* GFService.swift */,
+			);
+			path = Service;
+			sourceTree = "<group>";
+		};
+		86EEA55A2798291A00411BA7 /* Logging */ = {
+			isa = PBXGroup;
+			children = (
+				86EEA5572798196800411BA7 /* Logging.swift */,
+			);
+			path = Logging;
+			sourceTree = "<group>";
+		};
+		86EEA55B27982B1E00411BA7 /* Mocks */ = {
+			isa = PBXGroup;
+			children = (
+				86EEA56C27982E5900411BA7 /* MockNetworkConfigurable.swift */,
+				86EEA55C27982B1E00411BA7 /* MockNetworkManager.swift */,
+			);
+			path = Mocks;
+			sourceTree = "<group>";
+		};
+		86EEA56227982B3000411BA7 /* Model Tests */ = {
+			isa = PBXGroup;
+			children = (
+				86EEA56327982B3000411BA7 /* UserTests.swift */,
+				86EEA56427982B3000411BA7 /* UserDetailTests.swift */,
+			);
+			path = "Model Tests";
+			sourceTree = "<group>";
+		};
+		86EEA56A27982BB800411BA7 /* Network Tests */ = {
+			isa = PBXGroup;
+			children = (
+				86B11840279F4D1E007468A0 /* Service Tests */,
+				86EEA56E27983E2800411BA7 /* Manager Tests */,
+			);
+			path = "Network Tests";
+			sourceTree = "<group>";
+		};
+		86EEA56E27983E2800411BA7 /* Manager Tests */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = "Manager Tests";
+			sourceTree = "<group>";
+		};
+		OBJ_10 /* API Endpoints */ = {
+			isa = PBXGroup;
+			children = (
+				OBJ_11 /* GFEndPoints.swift */,
+			);
+			path = "API Endpoints";
+			sourceTree = "<group>";
+		};
+		OBJ_13 /* Manager */ = {
+			isa = PBXGroup;
+			children = (
+				OBJ_14 /* GFNetworkManager.swift */,
+			);
+			path = Manager;
+			sourceTree = "<group>";
+		};
+		OBJ_15 /* Tests */ = {
+			isa = PBXGroup;
+			children = (
+				OBJ_16 /* FeedEngineTests */,
+			);
+			name = Tests;
+			sourceTree = SOURCE_ROOT;
+		};
+		OBJ_16 /* FeedEngineTests */ = {
+			isa = PBXGroup;
+			children = (
+				86EEA55B27982B1E00411BA7 /* Mocks */,
+				86EEA56227982B3000411BA7 /* Model Tests */,
+				86EEA56A27982BB800411BA7 /* Network Tests */,
+				86B11837279CA141007468A0 /* Stubs */,
+			);
+			name = FeedEngineTests;
+			path = Tests/FeedEngineTests;
+			sourceTree = SOURCE_ROOT;
+		};
+		OBJ_18 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				"FeedEngine::FeedEngine::Product" /* FeedEngine.framework */,
+				"FeedEngine::FeedEngineTests::Product" /* FeedEngineTests.xctest */,
+			);
+			name = Products;
+			sourceTree = BUILT_PRODUCTS_DIR;
+		};
+		OBJ_5 = {
+			isa = PBXGroup;
+			children = (
+				OBJ_6 /* Package.swift */,
+				OBJ_7 /* Sources */,
+				OBJ_15 /* Tests */,
+				OBJ_18 /* Products */,
+				OBJ_21 /* README.md */,
+			);
+			sourceTree = "<group>";
+		};
+		OBJ_7 /* Sources */ = {
+			isa = PBXGroup;
+			children = (
+				OBJ_8 /* FeedEngine */,
+			);
+			name = Sources;
+			sourceTree = SOURCE_ROOT;
+		};
+		OBJ_8 /* FeedEngine */ = {
+			isa = PBXGroup;
+			children = (
+				86EEA5442797719700411BA7 /* Config */,
+				86EEA54127976C4400411BA7 /* Error */,
+				86EEA55A2798291A00411BA7 /* Logging */,
+				86EEA54F27977A8900411BA7 /* Models */,
+				OBJ_9 /* Network */,
+			);
+			name = FeedEngine;
+			path = Sources/FeedEngine;
+			sourceTree = SOURCE_ROOT;
+		};
+		OBJ_9 /* Network */ = {
+			isa = PBXGroup;
+			children = (
+				OBJ_10 /* API Endpoints */,
+				OBJ_13 /* Manager */,
+				86EEA5592798200E00411BA7 /* Service */,
+			);
+			path = Network;
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		"FeedEngine::FeedEngine" /* FeedEngine */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = OBJ_23 /* Build configuration list for PBXNativeTarget "FeedEngine" */;
+			buildPhases = (
+				OBJ_26 /* Sources */,
+				OBJ_30 /* Frameworks */,
+				86EEA54027976BA400411BA7 /* SwiftLint */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = FeedEngine;
+			productName = FeedEngine;
+			productReference = "FeedEngine::FeedEngine::Product" /* FeedEngine.framework */;
+			productType = "com.apple.product-type.framework";
+		};
+		"FeedEngine::FeedEngineTests" /* FeedEngineTests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = OBJ_43 /* Build configuration list for PBXNativeTarget "FeedEngineTests" */;
+			buildPhases = (
+				OBJ_46 /* Sources */,
+				OBJ_48 /* Frameworks */,
+				86B11834279CA10C007468A0 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				OBJ_50 /* PBXTargetDependency */,
+			);
+			name = FeedEngineTests;
+			productName = FeedEngineTests;
+			productReference = "FeedEngine::FeedEngineTests::Product" /* FeedEngineTests.xctest */;
+			productType = "com.apple.product-type.bundle.unit-test";
+		};
+		"FeedEngine::SwiftPMPackageDescription" /* FeedEnginePackageDescription */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = OBJ_32 /* Build configuration list for PBXNativeTarget "FeedEnginePackageDescription" */;
+			buildPhases = (
+				OBJ_35 /* Sources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = FeedEnginePackageDescription;
+			productName = FeedEnginePackageDescription;
+			productType = "com.apple.product-type.framework";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		OBJ_1 /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				LastSwiftMigration = 9999;
+				LastUpgradeCheck = 9999;
+			};
+			buildConfigurationList = OBJ_2 /* Build configuration list for PBXProject "FeedEngine" */;
+			compatibilityVersion = "Xcode 3.2";
+			developmentRegion = en;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+			);
+			mainGroup = OBJ_5;
+			productRefGroup = OBJ_18 /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				"FeedEngine::FeedEngine" /* FeedEngine */,
+				"FeedEngine::SwiftPMPackageDescription" /* FeedEnginePackageDescription */,
+				"FeedEngine::FeedEnginePackageTests::ProductTarget" /* FeedEnginePackageTests */,
+				"FeedEngine::FeedEngineTests" /* FeedEngineTests */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		86B11834279CA10C007468A0 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				86B11835279CA11A007468A0 /* test_userInfo.json in Resources */,
+				86B1183B279F46B1007468A0 /* test_searchUsers.json in Resources */,
+				86B1183F279F49AD007468A0 /* test_fetchFollowers.json in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXShellScriptBuildPhase section */
+		86EEA54027976BA400411BA7 /* SwiftLint */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+			);
+			name = SwiftLint;
+			outputFileListPaths = (
+			);
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "if which swiftlint >/dev/null; then\n  swiftlint\nelse\n  echo \"warning: SwiftLint not installed, download from https://github.com/realm/SwiftLint\"\nfi\n";
+		};
+/* End PBXShellScriptBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		OBJ_26 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 0;
+			files = (
+				OBJ_27 /* GFEndPoints.swift in Sources */,
+				86EEA55227977A8900411BA7 /* UserDetail.swift in Sources */,
+				OBJ_28 /* GFService.swift in Sources */,
+				86EEA546279771B100411BA7 /* GFConfig.swift in Sources */,
+				OBJ_29 /* GFNetworkManager.swift in Sources */,
+				86EEA54327976C6800411BA7 /* GFError.swift in Sources */,
+				86EEA55327977A8900411BA7 /* User.swift in Sources */,
+				86EEA5582798196800411BA7 /* Logging.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		OBJ_35 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 0;
+			files = (
+				OBJ_36 /* Package.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		OBJ_46 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 0;
+			files = (
+				86EEA56527982B3000411BA7 /* UserTests.swift in Sources */,
+				86EEA56627982B3000411BA7 /* UserDetailTests.swift in Sources */,
+				86EEA55F27982B1E00411BA7 /* MockNetworkManager.swift in Sources */,
+				86EEA56D27982E5900411BA7 /* MockNetworkConfigurable.swift in Sources */,
+				86B11842279F4D3D007468A0 /* FeedServiceTests.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		OBJ_41 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = "FeedEngine::FeedEngineTests" /* FeedEngineTests */;
+			targetProxy = 86EEA53F27976B9C00411BA7 /* PBXContainerItemProxy */;
+		};
+		OBJ_50 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = "FeedEngine::FeedEngine" /* FeedEngine */;
+			targetProxy = 86EEA53E27976B9C00411BA7 /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
+
+/* Begin XCBuildConfiguration section */
+		OBJ_24 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CURRENT_PROJECT_VERSION = 1;
+				DRIVERKIT_DEPLOYMENT_TARGET = 19.0;
+				ENABLE_TESTABILITY = YES;
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PLATFORM_DIR)/Developer/Library/Frameworks",
+				);
+				HEADER_SEARCH_PATHS = "$(inherited)";
+				INFOPLIST_FILE = FeedEngine.xcodeproj/FeedEngine_Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 13.0;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) $(TOOLCHAIN_DIR)/usr/lib/swift/macosx";
+				MACOSX_DEPLOYMENT_TARGET = 10.10;
+				OTHER_CFLAGS = "$(inherited)";
+				OTHER_LDFLAGS = "$(inherited)";
+				OTHER_SWIFT_FLAGS = "$(inherited)";
+				PRODUCT_BUNDLE_IDENTIFIER = FeedEngine;
+				PRODUCT_MODULE_NAME = "$(TARGET_NAME:c99extidentifier)";
+				PRODUCT_NAME = "$(TARGET_NAME:c99extidentifier)";
+				SKIP_INSTALL = YES;
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = "$(inherited)";
+				SWIFT_VERSION = 5.0;
+				TARGET_NAME = FeedEngine;
+				TVOS_DEPLOYMENT_TARGET = 9.0;
+				WATCHOS_DEPLOYMENT_TARGET = 2.0;
+			};
+			name = Debug;
+		};
+		OBJ_25 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CURRENT_PROJECT_VERSION = 1;
+				DRIVERKIT_DEPLOYMENT_TARGET = 19.0;
+				ENABLE_TESTABILITY = YES;
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PLATFORM_DIR)/Developer/Library/Frameworks",
+				);
+				HEADER_SEARCH_PATHS = "$(inherited)";
+				INFOPLIST_FILE = FeedEngine.xcodeproj/FeedEngine_Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 13.0;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) $(TOOLCHAIN_DIR)/usr/lib/swift/macosx";
+				MACOSX_DEPLOYMENT_TARGET = 10.10;
+				OTHER_CFLAGS = "$(inherited)";
+				OTHER_LDFLAGS = "$(inherited)";
+				OTHER_SWIFT_FLAGS = "$(inherited)";
+				PRODUCT_BUNDLE_IDENTIFIER = FeedEngine;
+				PRODUCT_MODULE_NAME = "$(TARGET_NAME:c99extidentifier)";
+				PRODUCT_NAME = "$(TARGET_NAME:c99extidentifier)";
+				SKIP_INSTALL = YES;
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = "$(inherited)";
+				SWIFT_VERSION = 5.0;
+				TARGET_NAME = FeedEngine;
+				TVOS_DEPLOYMENT_TARGET = 9.0;
+				WATCHOS_DEPLOYMENT_TARGET = 2.0;
+			};
+			name = Release;
+		};
+		OBJ_3 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CLANG_ENABLE_OBJC_ARC = YES;
+				COMBINE_HIDPI_IMAGES = YES;
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				DYLIB_INSTALL_NAME_BASE = "@rpath";
+				ENABLE_NS_ASSERTIONS = YES;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"$(inherited)",
+					"SWIFT_PACKAGE=1",
+					"DEBUG=1",
+				);
+				IPHONEOS_DEPLOYMENT_TARGET = 13.0;
+				MACOSX_DEPLOYMENT_TARGET = 10.10;
+				ONLY_ACTIVE_ARCH = YES;
+				OTHER_SWIFT_FLAGS = "$(inherited) -DXcode";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SDKROOT = macosx;
+				SUPPORTED_PLATFORMS = "$(AVAILABLE_PLATFORMS)";
+				SUPPORTS_MACCATALYST = YES;
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = "$(inherited) SWIFT_PACKAGE DEBUG";
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+				USE_HEADERMAP = NO;
+			};
+			name = Debug;
+		};
+		OBJ_33 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				LD = /usr/bin/true;
+				OTHER_SWIFT_FLAGS = "-swift-version 5 -I $(TOOLCHAIN_DIR)/usr/lib/swift/pm/ManifestAPI -sdk /Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX12.1.sdk -package-description-version 5.5.0";
+				SWIFT_VERSION = 5.0;
+			};
+			name = Debug;
+		};
+		OBJ_34 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				LD = /usr/bin/true;
+				OTHER_SWIFT_FLAGS = "-swift-version 5 -I $(TOOLCHAIN_DIR)/usr/lib/swift/pm/ManifestAPI -sdk /Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX12.1.sdk -package-description-version 5.5.0";
+				SWIFT_VERSION = 5.0;
+			};
+			name = Release;
+		};
+		OBJ_39 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+			};
+			name = Debug;
+		};
+		OBJ_4 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CLANG_ENABLE_OBJC_ARC = YES;
+				COMBINE_HIDPI_IMAGES = YES;
+				COPY_PHASE_STRIP = YES;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				DYLIB_INSTALL_NAME_BASE = "@rpath";
+				GCC_OPTIMIZATION_LEVEL = s;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"$(inherited)",
+					"SWIFT_PACKAGE=1",
+				);
+				IPHONEOS_DEPLOYMENT_TARGET = 13.0;
+				MACOSX_DEPLOYMENT_TARGET = 10.10;
+				OTHER_SWIFT_FLAGS = "$(inherited) -DXcode";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SDKROOT = macosx;
+				SUPPORTED_PLATFORMS = "$(AVAILABLE_PLATFORMS)";
+				SUPPORTS_MACCATALYST = YES;
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = "$(inherited) SWIFT_PACKAGE";
+				SWIFT_OPTIMIZATION_LEVEL = "-Owholemodule";
+				USE_HEADERMAP = NO;
+			};
+			name = Release;
+		};
+		OBJ_40 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+			};
+			name = Release;
+		};
+		OBJ_44 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CLANG_ENABLE_MODULES = YES;
+				CURRENT_PROJECT_VERSION = 1;
+				DRIVERKIT_DEPLOYMENT_TARGET = 19.0;
+				EMBEDDED_CONTENT_CONTAINS_SWIFT = YES;
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PLATFORM_DIR)/Developer/Library/Frameworks",
+				);
+				HEADER_SEARCH_PATHS = "$(inherited)";
+				INFOPLIST_FILE = FeedEngine.xcodeproj/FeedEngineTests_Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 13.0;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @loader_path/../Frameworks @loader_path/Frameworks";
+				MACOSX_DEPLOYMENT_TARGET = 11.0;
+				OTHER_CFLAGS = "$(inherited)";
+				OTHER_LDFLAGS = "$(inherited)";
+				OTHER_SWIFT_FLAGS = "$(inherited)";
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = "$(inherited)";
+				SWIFT_VERSION = 5.0;
+				TARGET_NAME = FeedEngineTests;
+				TVOS_DEPLOYMENT_TARGET = 14.0;
+				WATCHOS_DEPLOYMENT_TARGET = 7.0;
+			};
+			name = Debug;
+		};
+		OBJ_45 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CLANG_ENABLE_MODULES = YES;
+				CURRENT_PROJECT_VERSION = 1;
+				DRIVERKIT_DEPLOYMENT_TARGET = 19.0;
+				EMBEDDED_CONTENT_CONTAINS_SWIFT = YES;
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PLATFORM_DIR)/Developer/Library/Frameworks",
+				);
+				HEADER_SEARCH_PATHS = "$(inherited)";
+				INFOPLIST_FILE = FeedEngine.xcodeproj/FeedEngineTests_Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 13.0;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @loader_path/../Frameworks @loader_path/Frameworks";
+				MACOSX_DEPLOYMENT_TARGET = 11.0;
+				OTHER_CFLAGS = "$(inherited)";
+				OTHER_LDFLAGS = "$(inherited)";
+				OTHER_SWIFT_FLAGS = "$(inherited)";
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = "$(inherited)";
+				SWIFT_VERSION = 5.0;
+				TARGET_NAME = FeedEngineTests;
+				TVOS_DEPLOYMENT_TARGET = 14.0;
+				WATCHOS_DEPLOYMENT_TARGET = 7.0;
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		OBJ_2 /* Build configuration list for PBXProject "FeedEngine" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				OBJ_3 /* Debug */,
+				OBJ_4 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		OBJ_23 /* Build configuration list for PBXNativeTarget "FeedEngine" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				OBJ_24 /* Debug */,
+				OBJ_25 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		OBJ_32 /* Build configuration list for PBXNativeTarget "FeedEnginePackageDescription" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				OBJ_33 /* Debug */,
+				OBJ_34 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		OBJ_38 /* Build configuration list for PBXAggregateTarget "FeedEnginePackageTests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				OBJ_39 /* Debug */,
+				OBJ_40 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		OBJ_43 /* Build configuration list for PBXNativeTarget "FeedEngineTests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				OBJ_44 /* Debug */,
+				OBJ_45 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = OBJ_1 /* Project object */;
+}
