@@ -100,6 +100,11 @@ class GFNetworkManager: NetworkSessionManager {
                     return
                 }
 
+                if response.statusCode == 304 {
+                    completion(.failure(.limitExceeded))
+                    return
+                }
+
                 guard let data = data else {
                     self.logger.log(error: .noData)
                     completion(.failure(.noData))
