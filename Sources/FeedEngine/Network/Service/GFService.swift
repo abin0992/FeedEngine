@@ -19,6 +19,11 @@ public class GFService: FeedServiceProtocol {
         self.config = config
     }
 
+    public init() {
+        self.networkManager = GFNetworkManager.sharedInstance
+        self.config = GFUrlConfig.shared
+    }
+
     public typealias RetrieveUsersResult = ((Result<[User], GFError>) -> Void)
     public typealias RetrieveUserInfoResult = ((Result<UserDetail, GFError>) -> Void)
     public typealias RetrieveFolllowersListResult = ((Result<[User], GFError>) -> Void)
