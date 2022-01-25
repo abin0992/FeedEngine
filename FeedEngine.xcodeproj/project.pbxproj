@@ -34,7 +34,6 @@
 		86EEA56527982B3000411BA7 /* UserTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 86EEA56327982B3000411BA7 /* UserTests.swift */; };
 		86EEA56627982B3000411BA7 /* UserDetailTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 86EEA56427982B3000411BA7 /* UserDetailTests.swift */; };
 		86EEA56D27982E5900411BA7 /* MockNetworkConfigurable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 86EEA56C27982E5900411BA7 /* MockNetworkConfigurable.swift */; };
-		86F9E98C27A0252A008A204A /* FeedEngine_Info.plist in Sources */ = {isa = PBXBuildFile; fileRef = 86B11843279F5732007468A0 /* FeedEngine_Info.plist */; };
 		OBJ_27 /* GFEndPoints.swift in Sources */ = {isa = PBXBuildFile; fileRef = OBJ_11 /* GFEndPoints.swift */; };
 		OBJ_28 /* GFService.swift in Sources */ = {isa = PBXBuildFile; fileRef = OBJ_12 /* GFService.swift */; };
 		OBJ_29 /* GFNetworkManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = OBJ_14 /* GFNetworkManager.swift */; };
@@ -64,7 +63,6 @@
 		86B1183A279F46B1007468A0 /* test_searchUsers.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = test_searchUsers.json; sourceTree = "<group>"; };
 		86B1183E279F49AD007468A0 /* test_fetchFollowers.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = test_fetchFollowers.json; sourceTree = "<group>"; };
 		86B11841279F4D3D007468A0 /* FeedServiceTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FeedServiceTests.swift; sourceTree = "<group>"; };
-		86B11843279F5732007468A0 /* FeedEngine_Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = FeedEngine_Info.plist; sourceTree = "<group>"; };
 		86EEA54227976C6800411BA7 /* GFError.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GFError.swift; sourceTree = "<group>"; };
 		86EEA545279771B100411BA7 /* GFConfig.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GFConfig.swift; sourceTree = "<group>"; };
 		86EEA55027977A8900411BA7 /* UserDetail.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UserDetail.swift; sourceTree = "<group>"; };
@@ -267,7 +265,6 @@
 				86EEA55A2798291A00411BA7 /* Logging */,
 				86EEA54F27977A8900411BA7 /* Models */,
 				OBJ_9 /* Network */,
-				86B11843279F5732007468A0 /* FeedEngine_Info.plist */,
 			);
 			name = FeedEngine;
 			path = Sources/FeedEngine;
@@ -403,7 +400,6 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 0;
 			files = (
-				86F9E98C27A0252A008A204A /* FeedEngine_Info.plist in Sources */,
 				OBJ_27 /* GFEndPoints.swift in Sources */,
 				86EEA55227977A8900411BA7 /* UserDetail.swift in Sources */,
 				OBJ_28 /* GFService.swift in Sources */,
