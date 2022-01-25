@@ -13,7 +13,7 @@ private struct MockEndpoint: URLConfig {
     var url: URL
 }
 
-class MockConfig: NetworkConfigurable {
+struct MockConfig: NetworkConfigurable {
 
     static let shared: MockConfig = MockConfig()
 
@@ -22,17 +22,16 @@ class MockConfig: NetworkConfigurable {
     let testUserInfoJSONFile: String = "test_userInfo"
 
     func searchUsers(with searchKey: String, page: Int) -> URLConfig {
-        guard let jsonURL = Bundle(for: MockConfig.self).url(forResource: (testSearchUsersJSONFile), withExtension: "json") else {
+        guard let jsonURL = Bundle(for: MockNetworkManager.self).url(forResource: (testSearchUsersJSONFile), withExtension: "json") else {
              XCTFail("Loading file '\(testSearchUsersJSONFile).json' failed!")
             fatalError("Loading file '\(testSearchUsersJSONFile).json' failed!")
         }
 
-        print(jsonURL)
         return MockEndpoint(url: jsonURL)
     }
 
     func userInfo(for username: String) -> URLConfig {
-        guard let jsonURL = Bundle(for: MockConfig.self).url(forResource: (testUserInfoJSONFile), withExtension: "json") else {
+        guard let jsonURL = Bundle(for: MockNetworkManager.self).url(forResource: (testUserInfoJSONFile), withExtension: "json") else {
             XCTFail("Loading file '\(testUserInfoJSONFile).json' failed!")
             fatalError("Loading file '\(testUserInfoJSONFile).json' failed!")
         }
@@ -41,7 +40,7 @@ class MockConfig: NetworkConfigurable {
     }
 
     func followersList(for username: String, page: Int) -> URLConfig {
-        guard let jsonURL = Bundle(for: MockConfig.self).url(forResource: (testFetchFollowersJSONFile), withExtension: "json") else {
+        guard let jsonURL = Bundle(for: MockNetworkManager.self).url(forResource: (testFetchFollowersJSONFile), withExtension: "json") else {
             XCTFail("Loading file '\(testFetchFollowersJSONFile).json' failed!")
             fatalError("Loading file '\(testFetchFollowersJSONFile).json' failed!")
         }

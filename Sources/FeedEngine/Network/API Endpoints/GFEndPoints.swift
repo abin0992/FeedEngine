@@ -39,7 +39,7 @@ protocol NetworkConfigurable {
     func followersList(for username: String, page: Int) -> URLConfig
 }
 
-class GFUrlConfig: NetworkConfigurable {
+struct GFUrlConfig: NetworkConfigurable {
 
     static let shared: GFUrlConfig = GFUrlConfig()
 
