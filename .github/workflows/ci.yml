@@ -25,7 +25,7 @@ jobs:
 
     - name: Build app
       if: steps.cache.outputs.cache-hit != 'true'
-      run: xcodebuild -project 'FeedEngine.xcodeproj' -scheme 'FeedEngine' -destination 'platform:macOS' -configuration Release build CODE_SIGNING_ALLOWED=NO | xcpretty
+      run: xcodebuild -project 'FeedEngine.xcodeproj' -scheme 'FeedEngine' -destination 'platform=macOS' -configuration Release build CODE_SIGNING_ALLOWED=NO | xcpretty
     
   Test:
     runs-on: macos-latest
@@ -42,4 +42,4 @@ jobs:
 
     - name: Run tests
       if: steps.cache.outputs.cache-hit != 'true'
-      run: xcodebuild -project 'FeedEngine.xcodeproj' -scheme 'FeedEngine' -destination 'platform:macOS' test | xcpretty
+      run: xcodebuild -project 'FeedEngine.xcodeproj' -scheme 'FeedEngine' -destination 'platform=macOS' test | xcpretty
