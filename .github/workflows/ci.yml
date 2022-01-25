@@ -25,7 +25,7 @@ jobs:
 
     - name: Build app
       if: steps.cache.outputs.cache-hit != 'true'
-      run: xcodebuild -project 'FeedEngine.xcodeproj' -scheme 'FeedEngine' -destination 'generic/platform=iOS' -configuration Release build CODE_SIGNING_ALLOWED=NO
+      run: xcodebuild -project 'FeedEngine.xcodeproj' -scheme 'FeedEngine' -destination 'generic/platform=iOS' -configuration Release build CODE_SIGNING_ALLOWED=NO | xcpretty
 
   Test:
     runs-on: macos-11

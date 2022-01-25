@@ -21,7 +21,7 @@ public enum GFError: Error {
     case notConnected
     case generic
 
-    var description: String {
+    public var description: String {
             switch self {
             case .invalidUsername:
                 return "This username created an invalid request. Please try again."
