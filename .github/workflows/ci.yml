@@ -18,8 +18,10 @@ jobs:
       with:
         fetch-depth: 1
 
-    - name: Force Xcode 13.2.1
-      run: sudo xcode-select -switch /Applications/Xcode_13.2.1.app
+    - name: Select latest Xcode
+      uses: maxim-lobanov/setup-xcode@v1
+      with:
+        xcode-version: latest-stable
 
     - name: Build app
       if: steps.cache.outputs.cache-hit != 'true'
@@ -33,8 +35,10 @@ jobs:
       with:
         fetch-depth: 1
 
-    - name: Force Xcode 13.2.1
-      run: sudo xcode-select -switch /Applications/Xcode_13.2.1.app
+    - name: Select latest Xcode
+      uses: maxim-lobanov/setup-xcode@v1
+      with:
+        xcode-version: latest-stable
 
     - name: Run tests
       if: steps.cache.outputs.cache-hit != 'true'
