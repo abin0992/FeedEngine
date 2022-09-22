@@ -8,17 +8,17 @@
 import Foundation
 
 public struct UserDetail: Codable {
-    let login: String
-    let avatarUrl: String
-    var name: String?
-    var location: String?
-    var bio: String?
-    let publicRepos: Int
-    let publicGists: Int
-    let htmlUrl: String
-    let following: Int
-    let followers: Int
-    let createdAt: Date
+    public let login: String
+    public let avatarUrl: String
+    public var name: String?
+    public var location: String?
+    public var bio: String?
+    public let publicRepos: Int
+    public let publicGists: Int
+    public let htmlUrl: String
+    public let following: Int
+    public let followers: Int
+    public let createdAt: Date
     
     public init(login: String, avatarUrl: String, name: String? = nil, location: String? = nil, bio: String? = nil, publicRepos: Int, publicGists: Int, htmlUrl: String, following: Int, followers: Int, createdAt: Date) {
         self.login = login
