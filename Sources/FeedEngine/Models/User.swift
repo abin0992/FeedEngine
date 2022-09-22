@@ -21,8 +21,8 @@ public struct UserList: Codable, Hashable {
 
 public struct User: Codable, Hashable {
     var identifier: String = UUID().uuidString
-    public let login: String
-    public let avatarUrl: String
+    let login: String
+    let avatarUrl: String
 
     public init(identifier: String, login: String, avatarUrl: String) {
         self.identifier = identifier
